@@ -1,0 +1,40 @@
+ private static TreeSet<String> union(TreeSet ta,TreeSet tb) {
+        TreeSet i = new TreeSet();
+         i.add(ta);
+         i.add(tb);
+        return i;
+    }
+
+    public static TreeSet<String> interseccion(TreeSet<String> iter, ArrayList<String> segundo) {
+        TreeSet<String> c =new TreeSet();
+        TreeSet<String> tset = new TreeSet<>(segundo);
+        String p;
+         String pa;
+        if (iter.size() > tset.size()) {
+            Iterator iterator = iter.iterator(); 
+            while(iterator.hasNext()){
+                p=(String) iterator.next();
+                Iterator iterato = tset.iterator(); 
+                while(iterato.hasNext()){
+                    pa=(String) iterato.next();
+                    if (p.equals(pa)) {
+                        c.add(p);
+                    }
+                }
+            }
+        } else {
+            Iterator iterator = tset.iterator(); 
+            while(iterator.hasNext()){
+                p=(String) iterator.next();
+                Iterator iterato = iter.iterator(); 
+                while(iterato.hasNext()){
+                    pa=(String) iterato.next();
+                    if (p.equals(pa)) {
+                        c.add(p);
+                    }
+                }
+            }
+        }
+
+        return c;
+    }
